@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math Defense: Kingdom Siege</title>
+  
+  <!-- Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Main Wrapper -->
+  <div id="app-container">
+    
+    <!-- MAIN MENU SCREEN -->
+    <div id="main-menu" class="screen active">
+      <div class="menu-decorations">
+        <div class="glow-orb target-orb1"></div>
+        <div class="glow-orb target-orb2"></div>
+      </div>
+      
+      <div class="menu-content">
+        <h1 class="game-title">MATH DEFENSE</h1>
+        <h2 class="game-subtitle">Kingdom Siege</h2>
+        
+        <div class="menu-buttons">
+          <button id="btn-play" class="btn btn-primary">INICIAR CAMPANHA</button>
+          <button id="btn-tutorial" class="btn btn-secondary">COMO JOGAR</button>
+          <button id="btn-settings" class="btn btn-secondary">CONFIGURAÇÕES</button>
+        </div>
+        
+        <div class="creator-credits">Developed by Rafael Di Pietro</div>
+      </div>
+    </div>
+    
+    <!-- LEVEL SELECT SCREEN -->
+    <div id="level-select" class="screen">
+      <div class="screen-header">
+        <button class="btn-back btn-back-menu">← MENU</button>
+        <h2>Selecione a Província</h2>
+      </div>
+      
+      <div class="level-cards-container">
+        <!-- Level 1 -->
+        <div class="level-card unlocked active" data-level="1">
+          <div class="level-badge">Fase 1</div>
+          <h3>Floresta dos Slimes</h3>
+          <p class="math-topic">Soma e Subtração</p>
+          <div class="level-preview">
+            <span class="enemy-icon">🟢</span> Slimes Lentos
+          </div>
+          <button class="btn btn-play-level">DEFENDER</button>
+        </div>
+        
+        <!-- Level 2 -->
+        <div class="level-card locked" data-level="2">
+          <div class="level-lock">🔒</div>
+          <div class="level-badge">Fase 2</div>
+          <h3>Minas de Goblin</h3>
+          <p class="math-topic">Multiplicação e Divisão</p>
+          <div class="level-preview">
+            <span class="enemy-icon">🟠</span> Goblins Velozes
+          </div>
+          <button class="btn btn-play-level">DEFENDER</button>
+        </div>
+        
+        <!-- Level 3 -->
+        <div class="level-card locked" data-level="3">
+          <div class="level-lock">🔒</div>
+          <div class="level-badge">Fase 3</div>
+          <h3>Pico do Dragão</h3>
+          <p class="math-topic">Parênteses, Potência e Porcentagem</p>
+          <div class="level-preview">
+            <span class="enemy-icon">🔴</span> Dragões Voadores
+          </div>
+          <button class="btn btn-play-level">DEFENDER</button>
+        </div>
+        
+        <!-- Level 4 -->
+        <div class="level-card locked" data-level="4">
+          <div class="level-lock">🔒</div>
+          <div class="level-badge">Fase 4</div>
+          <h3>Trono do Caos (Boss)</h3>
+          <p class="math-topic">Equações de 1° Grau</p>
+          <div class="level-preview">
+            <span class="enemy-icon">👿</span> O Arquimago
+          </div>
+          <button class="btn btn-play-level">DEFENDER</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- TUTORIAL SCREEN -->
+    <div id="tutorial-screen" class="screen">
+      <div class="screen-header">
+        <button class="btn-back btn-back-menu">← VOLTAR</button>
+        <h2>Instruções de Defesa</h2>
+      </div>
+      
+      <div class="tutorial-content card-glass">
+        <div class="tutorial-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4>Analise a Ameaça</h4>
+            <p>Inimigos avançam em direção ao seu Castelo pela estrada. Cada um carrega uma <strong>expressão matemática</strong> flutuando acima dele.</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4>Conjure seu Ataque</h4>
+            <p>Digite o <strong>resultado correto</strong> da expressão no campo de texto central e aperte <kbd>ENTER</kbd>. Suas torres mágicas dispararão imediatamente contra o alvo!</p>
+          </div>
+        </div>
+        
+        <div class="tutorial-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Multiplique sua Pontuação</h4>
+            <p>Acertos consecutivos aumentam o seu <strong>Combo</strong>. Errar a resposta zerará o multiplicador.</p>
+          </div>
+        </div>
+
+        <div class="tutorial-step">
+          <div class="step-num">4</div>
+          <div class="step-text">
+            <h4>Use Magias Poderosas</h4>
+            <p>Com os cristais coletados ao derrotar monstros, conjure magias no painel esquerdo ou usando os atalhos <kbd>Q</kbd>, <kbd>W</kbd> ou <kbd>E</kbd>:</p>
+            <ul>
+              <li><strong>[Q] Congelar (Cost: 15):</strong> Reduz a velocidade de todos pela metade por 5s.</li>
+              <li><strong>[W] Bola de Fogo (Cost: 25):</strong> Elimina o inimigo mais próximo.</li>
+              <li><strong>[E] Escudo do Castelo (Cost: 30):</strong> Adiciona barreira protetora contra brechas.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- SETTINGS SCREEN -->
+    <div id="settings-screen" class="screen">
+      <div class="screen-header">
+        <button class="btn-back btn-back-menu">← MENU</button>
+        <h2>Configurações do Reino</h2>
+      </div>
+      
+      <div class="settings-content card-glass">
+        <div class="setting-row">
+          <span class="setting-label">Efeitos Sonoros (Synth Audio)</span>
+          <label class="switch">
+            <input type="checkbox" id="setting-sound" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+        <div class="setting-row">
+          <span class="setting-label">Música Procedural de Fundo</span>
+          <label class="switch">
+            <input type="checkbox" id="setting-music">
+            <span class="slider"></span>
+          </label>
+        </div>
+        
+        <div class="setting-row">
+          <span class="setting-label">Grau de Dificuldade</span>
+          <select id="setting-difficulty" class="select-premium">
+            <option value="easy">Fácil (Mais tempo, números baixos)</option>
+            <option value="medium" selected>Médio (Velocidade e expressões normais)</option>
+            <option value="hard">Difícil (Monstros rápidos, equações complexas)</option>
+          </select>
+        </div>
+
+        <div class="setting-desc">
+          <p>O som do jogo é gerado inteiramente por síntese de áudio (Web Audio API) diretamente no seu navegador, dispensando qualquer carregamento de arquivos externos.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- GAMEPLAY VIEWPORT -->
+    <div id="gameplay-view" class="screen">
+      
+      <!-- GAME OVERLAY HUD -->
+      <div id="hud-bar">
+        <div class="hud-item hearts-hud">
+          <span class="hud-icon">❤️</span>
+          <div class="hud-values">
+            <span class="hud-label">Castelo HP</span>
+            <div id="castle-health-bar" class="progress-bar-bg">
+              <div id="castle-health" class="progress-bar-fill fill-green" style="width: 100%;"></div>
+            </div>
+            <span id="castle-health-txt">100 / 100</span>
+          </div>
+        </div>
+        
+        <div class="hud-item info-hud">
+          <div>
+            <div id="stage-title">Fase 1: Floresta dos Slimes</div>
+            <div id="wave-status">Onda 1 / 3</div>
+          </div>
+        </div>
+        
+        <div class="hud-item score-hud">
+          <div class="score-box">
+            <span class="hud-label">Pontos</span>
+            <span id="txt-score">00000</span>
+          </div>
+          <div class="combo-box" id="combo-container" style="opacity: 0;">
+            <span id="txt-combo">x1</span>
+            <span class="combo-label">COMBO</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CANVA ARENA -->
+      <div id="arena-container">
+        <canvas id="game-canvas"></canvas>
+      </div>
+      
+      <!-- SPELL CAST PANEL (LEFT-SIDE OVERLAY) -->
+      <div id="spells-panel">
+        <div class="spells-title">Mágicas (Crystals: <span id="crystal-count">0</span>)</div>
+        
+        <button id="spell-freeze" class="spell-btn" data-cost="15" title="Atalho: Q">
+          <span class="spell-icon">❄️</span>
+          <div class="spell-info">
+            <span class="spell-name">Congelar [Q] (15)</span>
+            <span class="spell-desc">Velocidade -50%</span>
+          </div>
+          <div class="cooldown-overlay" id="cooldown-freeze"></div>
+        </button>
+        
+        <button id="spell-fireball" class="spell-btn" data-cost="25" title="Atalho: W">
+          <span class="spell-icon">🔥</span>
+          <div class="spell-info">
+            <span class="spell-name">Bola de Fogo [W] (25)</span>
+            <span class="spell-desc">Elimina o mais próximo</span>
+          </div>
+          <div class="cooldown-overlay" id="cooldown-fireball"></div>
+        </button>
+        
+        <button id="spell-shield" class="spell-btn" data-cost="30" title="Atalho: E">
+          <span class="spell-icon">🛡️</span>
+          <div class="spell-info">
+            <span class="spell-name">Escudo [E] +20 (30)</span>
+            <span class="spell-desc">Defesa Adicional</span>
+          </div>
+          <div class="cooldown-overlay" id="cooldown-shield"></div>
+        </button>
+      </div>
+      
+      <!-- MATH INPUT FIELD CONTAINER (BOTTOM CENTER) -->
+      <div id="input-overlay">
+        <div class="input-glow-wrapper">
+          <input type="text" id="math-input" autocomplete="off" placeholder="Digite a resposta e pressione Enter..." autofocus>
+          <div class="input-glow-line"></div>
+        </div>
+      </div>
+
+      <!-- IN-GAME MENU ESC / PAUSE BTN -->
+      <button id="btn-pause-trigger">⏸️</button>
+    </div>
+    
+    <!-- PAUSE MODAL OVERLAY -->
+    <div id="pause-modal" class="modal-overlay">
+      <div class="modal-content card-glass">
+        <h2>Batalha Pausada</h2>
+        <p>A horda inimiga está aguardando suas respostas matemáticas.</p>
+        <div class="modal-buttons">
+          <button id="btn-resume-game" class="btn btn-primary">RETOMAR</button>
+          <button id="btn-exit-to-levels" class="btn btn-secondary">SAIR DA FASE</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- GAME OVER SCREEN (DEFEAT) -->
+    <div id="defeat-screen" class="screen">
+      <div class="modal-content card-glass state-defeat">
+        <h1 class="text-glow-red">Castelo Destruído!</h1>
+        <p>Suas defesas falharam perante o exército da ignorância matemática.</p>
+        
+        <div class="game-stats">
+          <div class="stat-row">
+            <span>Pontuação Final:</span>
+            <strong id="defeat-score">0</strong>
+          </div>
+          <div class="stat-row">
+            <span>Expressões Resolvidas:</span>
+            <strong id="defeat-solved">0</strong>
+          </div>
+          <div class="stat-row">
+            <span>Maior Combo:</span>
+            <strong id="defeat-combo">x0</strong>
+          </div>
+          <div class="stat-row">
+            <span>Precisão:</span>
+            <strong id="defeat-accuracy">0%</strong>
+          </div>
+        </div>
+        
+        <div class="modal-buttons">
+          <button id="btn-retry-level" class="btn btn-primary">TENTAR NOVAMENTE</button>
+          <button class="btn btn-secondary btn-back-levels">PROVÍNCIAS</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- VICTORY SCREEN -->
+    <div id="victory-screen" class="screen">
+      <div class="modal-content card-glass state-victory">
+        <h1 class="text-glow-green">Vitória Triunfante!</h1>
+        <p>O reino foi defendido com a força de seus cálculos mentais!</p>
+        
+        <div class="game-stats">
+          <div class="stat-row">
+            <span>Pontuação:</span>
+            <strong id="victory-score">0</strong>
+          </div>
+          <div class="stat-row">
+            <span>Inimigos Destruídos:</span>
+            <strong id="victory-solved">0</strong>
+          </div>
+          <div class="stat-row">
+            <span>Maior Combo:</span>
+            <strong id="victory-combo">x0</strong>
+          </div>
+          <div class="stat-row">
+            <span>Precisão:</span>
+            <strong id="victory-accuracy">0%</strong>
+          </div>
+        </div>
+        
+        <div class="modal-buttons">
+          <button id="btn-next-level" class="btn btn-primary">PRÓXIMA FASE</button>
+          <button class="btn btn-secondary btn-back-levels">PROVÍNCIAS</button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- JAVASCRIPT SOURCES -->
+  <script src="src/mathGenerator.js"></script>
+  <script src="src/audio.js"></script>
+  <script src="src/game.js"></script>
+</body>
+</html>
